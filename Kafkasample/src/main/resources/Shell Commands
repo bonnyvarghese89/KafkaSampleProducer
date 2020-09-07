@@ -1,0 +1,13 @@
+#Start Zookeeper Server
+  cd /usr/local/kafka
+  zookeeper-server-start etc/kafka/zookeeper.properties
+
+#Start Kafka Server
+  cd /usr/local/kafka
+  kafka-server-start etc/kafka/server.properties
+
+#Create topic
+  kafka-topics --zookeeper localhost:2181 --create --topic topicName  --replication-factor 1 --partitions 3
+
+#Check the Kafka Console
+  kafka-console-consumer --bootstrap-server localhost:9092 --topic topicName  --from-beginning
